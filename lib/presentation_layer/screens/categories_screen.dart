@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shop_app/data_layer/models/CategoriesModel.dart';
 import 'package:shop_app/domain_layer/bloc/shop_cubit/shop_cubit.dart';
+
+import '../widget_builders/build_categories_item_in_categories_screen.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({ Key? key}) : super(key: key);
@@ -22,27 +23,3 @@ class CategoriesScreen extends StatelessWidget {
   }
 }
 
-Widget buildCategoriesItems(CategoryData categoryData) {
-  return Padding(
-    padding: const EdgeInsets.all(20.0),
-    child: Row(
-      children: [
-        Image(
-          image: NetworkImage(categoryData.image!),
-          width: 120,
-          height: 120,
-          fit: BoxFit.cover,
-        ),
-        const SizedBox(
-          width: 20,
-        ),
-         Text(
-          categoryData.name!,
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        const Spacer(),
-        const Icon(Icons.arrow_forward_ios)
-      ],
-    ),
-  );
-}
